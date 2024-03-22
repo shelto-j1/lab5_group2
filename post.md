@@ -52,7 +52,11 @@ Next, after creating the function table we use the values from the table inorder
 <img src="./assets/F.png" />
 
 Finally, we use the k-maps to design and build the circuit.
+
+-Below is the logisim design of our circuit.
 <img src="./assets/photo.png" />
+
+-Below is the final circuit we built on the breadboard.
 <img src="./assets/circuit.png" />
 
 ## Testing
