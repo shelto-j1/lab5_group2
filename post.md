@@ -67,8 +67,13 @@ Finally, we use the k-maps to design and build the circuit.
 <img src="./assets/circuit.png" />
 
 ## Testing
-In order to test the circuit we had to have the x input certain streams to see if the output of the circuit was correct. If you remeber, the circuit is supposed to out put a 1 if the stream ends in 00, and it's supposed to output a 0 for anything else. We tested multiple inputs of x to ensure that the output was correct. See the video below for a demostration.
+In the testing phase of our lab, we aimed to rigorously evaluate our circuit's ability to determine if a binary number is divisible by three, a challenge that required careful planning and execution. Our testing methodology was designed to encompass a comprehensive range of scenarios, ensuring the circuit's reliability and accuracy across various inputs.
 
+For example, we started with inputs like "0" and "1", which correspond to decimal values of 0 and 1, respectively, and observed the outputs. The real test of our circuit's design came with longer sequences, such as "010" and "01001", which translate to the decimal values of 2 and 9, respectively. Each input sequence was carefully chosen to challenge the circuit's ability to accurately transition between states and produce the correct output, whether the cumulative binary number was divisible by three.
+
+In order to test the circuit we had to have the x input certain streams to see if the output of the circuit was correct. If you remeber, the circuit is supposed to out put a 1 if the stream ends in 00, and it's supposed to output a 0 for anything else. We tested multiple inputs of x to ensure that the output was correct.  The testing phase included scenarios that were designed to simulate potential edge cases, such as long sequences of zeros, which could potentially trip up the state transition logic if not correctly accounted for in the design
+
+See the video below for a demostration.
 
 
 ## Conclusion
