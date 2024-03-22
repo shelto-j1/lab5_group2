@@ -1,6 +1,6 @@
 # Lab 05: Finite State Machine Design
 
-## Overview and Motivatio
+## Overview and Motivation
 
 This lab delves into the design of a finite state machine (FSM), specifically tasked with reading binary numbers and determining their divisibility by three. This lab not only strengthens the understanding of sequential logic circuits but also serves as a practical application of digital design principles. This task underscores the significance of FSMs in parsing input streams and showcases the dynamic interaction between state transitions and output responses.
 
