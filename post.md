@@ -1,34 +1,41 @@
-# Lab X: Doing stuff with hardware!
-
-Please write a blog post describing your lab here.
-
-This is just an example of how you might structure your blog post, feel free to edit as you wish. For example, you might divide the lab into different sections each with their own intro, instructions, results, and takeaways. Please see the rubric for details on how the post will be evaluated.
+# Lab 05: Finite State Machine Design
 
 ## Overview and Motivation
-This week we'll explore...
+
+This lab delves into the design of a finite state machine (FSM), specifically tasked with reading binary numbers and determining their divisibility by three. This lab not only strengthens the understanding of sequential logic circuits but also serves as a practical application of digital design principles. This task underscores the significance of FSMs in parsing input streams and showcases the dynamic interaction between state transitions and output responses.
+
+## Lab Objectives
+
+- Design a deterministic finite automaton (DFA) to assess the divisibility of binary inputs by three.
+- Manage the states of the DFA using JK flip-flops to track and transition between states.
+- Construct two combinational logic circuits for determining the next state and output based on the current state and input bit.
+- Create a function table to define the logic relations between the state (Q values), input bits, and the desired output.
+- Use K-Maps for each output to optimize the circuit design through logical minimization.
+- Build the circuit using Logisim software to validate functionality before physical assembly.
+- Assemble and test the physical circuit to ensure it meets design specifications and functional requirements.
 
 ## Materials
--IC data sheets
+- IC data sheets
 
--PB-503 breadboard prototyping station
+- PB-503 breadboard prototyping station
 
--Wires and connection tools
+- Wires and connection tools
 
--Logic Probes
+- Logic Probes
 
--Logic Switches
+- Logic Switches
 
--Push Button
+- Push Button
 
--7404 NOT gate IC
+- 7404 NOT gate IC
 
--7408 AND gate IC
+- 7408 AND gate IC
 
--7486 XOR gate IC
+- 7486 XOR gate IC
 
--7476 JK Flip Flop IC
+- 7476 JK Flip Flop IC
 
--Resistors
+- Resistors
 
 ## Project Steps
 In order to start designing the circuit, we first needed to design a FSM (DFA-Deterministic Finite Automata), using a state transition diagram. We designed it in the way that if the stream x, ends in 00, then the circuit outputs and 1, and if it ends in anything else, in outputs a 0.
