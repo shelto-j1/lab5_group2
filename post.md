@@ -125,6 +125,7 @@ In order to test the circuit we had to have the x input certain streams to see i
 
 See the video below for a demostration.
 
+[Testing](https://drive.google.com/file/d/11FqdVL4qjq9OCgY9U-IH20cuRPRuRlwK/view?usp=sharing&t=21)
 
 ## Conclusion
 
