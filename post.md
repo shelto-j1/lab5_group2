@@ -4,7 +4,7 @@
 
 This lab delves into the design of a finite state machine (FSM), specifically tasked with reading binary numbers and determining their divisibility by three. This lab not only strengthens the understanding of sequential logic circuits but also serves as a practical application of digital design principles. This task underscores the significance of FSMs in parsing input streams and showcases the dynamic interaction between state transitions and output responses.
 
-<img src="./assets/overview.png" />
+<img src="./assets/overview.png" alt="alt text" width="800"/>
 
 ## Lab Objectives
 
@@ -40,33 +40,80 @@ This lab delves into the design of a finite state machine (FSM), specifically ta
 - Resistors
 
 ## Project Steps
-In order to start designing the circuit, we first needed to design a FSM (DFA-Deterministic Finite Automata), using a state transition diagram. We designed it in the way that if the stream x, ends in 00, then the circuit outputs and 1, and if it ends in anything else, in outputs a 0.
-<img src="./assets/dfa.png" />
 
-Next we had to contruct a state table. A state table shows us the states and the steps taken inorder to reach those states. If you look at the image below you will see that our starting state is S0. This is because we want our stream to end in 00.
+### 1. Designing a Finite State Machine (FSM)
 
--Below is our state table.
-<img src="./assets/statetable.png" />
+In order to start designing the circuit, we first needed to design a FSM (DFA-Deterministic Finite Automata), using a state transition diagram. 
 
-After we created a state table we need to the FSM to and state table to create a function table. This shows us the before and after values for signals in the circuit. It showa the signals that are sent to the J and K inputs. 
+- A deterministic finite automaton (DFA) is a model of computation that consists of a limited number of states, transitions between those states, and one start state. It reads a string of symbols (input), and by following the transitions, which are determined by the current state and the input symbol, the DFA can accept or reject the string by ending in an accepting or non-accepting state. 
 
-- Below is the state table.
-<img src="./assets/fun.png" />
+- We need to create a DFA where the objective is to form binary sequences that can be evenly divided by 3. In binary, we only have two possible inputs: 0 and 1. For our DFA to be deterministic, each state must have a clear directive for what to do when it encounters either a 0 or a 1. Without explicit instructions for both inputs at every state, the system wouldn't be deterministic.
 
-Next, after creating the function table we use the values from the table inorder to contruct k-maps to create our circuit.
-<img src="./assets/J1.png" />
-<img src="./assets/K1.png" />
-<img src="./assets/J0.png" />
-<img src="./assets/K0.png" />
-<img src="./assets/F.png" />
+- We designed it in the way that if the stream `x`, ends in 00, then the circuit outputs and 1, and if it ends in anything else, it outputs a 0.
+
+<img src="./assets/dfa.png" alt="alt text" width="800"/>
+
+### 2. Creating a State Table
+
+The next step is to build a state table. The two main objectives of the State Table step are:
+1. Determine the number of JK flip flops we need. 
+2. Create a table and assign states to JK ff values.
+
+-  Each row of the table will represent one state in the FSM. We will use a “binary number” formed by the values of the JK flip flops to represent each state. Each state must have a unique binary number.
+
+- We need two bits in our binary number to represent three different states. Thus we need two JK flip-flops. We will call the flip-flops `Q1` and `Q2` (`Q` is the output of each flip-flop). We now make an assignment of JK ff values to states as shown below.
+
+- If you look at the image below you will see that our starting state is `S0`. This is because we want our stream to end in 00.
+
+<img src="./assets/statetable.png"  alt="alt text" width="800"/>
+
+### 3. Creating the Function Table
+
+- The purpose of this step is to specify the actual before and after values for the various signals in the circuit, especially the JK ffs.
+
+- We need to capture the detail of what signals to send to each JK ff as the J and K inputs so that the flip-flop output value on the next clock cycle represents the correct next-state value.
+
+- This step involves a huge table where
+    - The left side of the table is the current information (current state, current input for x). 
+    - The middle section of the table is the next information (next state) and the control inputs for the JK flip-flops that cause this next state to happen correctly. 
+    - The rightmost column lists the desired output, F , based on the current state.
+
+- Below is the function table.
+
+<img src="./assets/fun.png" alt="alt text" width="800"/>
+
+In the above function table:
+
+- The `Curr` column lists the current states, labeled `S0`, `S1`, and `S2`, and a placeholder `X` for undefined states.
+- The `Q1` and `Q0` columns represent the current outputs of two flip-flops before the input `X` is applied.
+- The `X` column shows the current input being either a 0 or a 1.
+- The `Next` column indicates the resulting next state the system should transition to given the `Curr` state and `X` input.
+- `Q1'` and `Q0'` represent the expected outputs of the flip-flops in the next state.
+- The `J1`, `K1`, `J0`, and `K0` columns specify the signals to be sent to the corresponding `J` and `K` inputs of the JK flip-flops to achieve the transition from the current to the next state.
+- The `F` column shows the desired output based on the current state.
+
+The table incorporates `'don't care'` conditions (indicated by `X` in the JK inputs), which allows for flexibility in designing the circuit logic because the specific input doesn't affect the outcome in certain cases. These conditions are useful for simplifying the circuit design later on. The function table ensures that every possible current state and input combination is accounted for, leading to a deterministic and correctly functioning circuit.
+
+### 4. Constructing K-Maps
+
+Next, after creating the function table we use the values from the table inorder to contruct K-Maps to build our circuit.
+
+<img src="./assets/J1.png" alt="alt text" width="800"/>
+<img src="./assets/K1.png" alt="alt text" width="800"/>
+<img src="./assets/J0.png" alt="alt text" width="800"/>
+<img src="./assets/K0.png" alt="alt text" width="800"/>
+<img src="./assets/F.png" alt="alt text" width="800"/>
+
 
 Finally, we use the k-maps to design and build the circuit.
 
--Below is the logisim design of our circuit.
-<img src="./assets/photo.png" />
+- Below is the logisim design of our circuit.
 
--Below is the final circuit we built on the breadboard.
-<img src="./assets/circuit.png" />
+<img src="./assets/photo.png" alt="alt text" width="800"/>
+
+- Below is the final circuit we built on the breadboard.
+
+<img src="./assets/circuit.jpeg" alt="alt text" width="600"/>
 
 ## Testing
 
